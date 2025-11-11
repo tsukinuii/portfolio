@@ -19,7 +19,10 @@ export const projects: Project[] = [
     title: "Internal Link Header Footer",
     category: "frontend",
     shortDescription: "Dynamic menu system with SEO optimization",
-    image: ["/quick-search-and-footer.png", "/quick-search.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/quick-search-and-footer.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887908/quick-search_pldyq1.png",
+    ],
     tags: ["Next.js", "TypeScript", "JSON Config", "SEO"],
     featured: true,
     contribution: [
@@ -37,9 +40,9 @@ export const projects: Project[] = [
     category: "frontend",
     shortDescription: "Upsell Lead",
     image: [
-      "/upsell-lead-multi.png",
-      "/upsell-lead.png",
-      "send-upsell-lead.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/upsell-lead-multi.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/upsell-lead.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887909/send-upsell-lead.png",
     ],
     tags: ["Next.js", "JavaScript", "Styled Components"],
     featured: true,
@@ -59,9 +62,9 @@ export const projects: Project[] = [
     category: "frontend",
     shortDescription: "Matching Lead",
     image: [
-      "/matching-lead.png",
-      "/matching-lead-send-1.png",
-      "/matching-lead-send-2.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887907/matching-lead_gu4cm2.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887907/matching-lead-send-1_t912mp.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887908/matching-lead-send-2_yfgxpa.png",
     ],
     tags: ["Next.js", "JavaScript", "Tailwind CSS", "Styled Components"],
     featured: false,
@@ -78,7 +81,9 @@ export const projects: Project[] = [
     title: "Advanced Promotion & Event Page",
     category: "frontend",
     shortDescription: "ui design promotion page",
-    image: ["/promotion-page.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887909/promotion-page.png",
+    ],
     tags: ["Next.js", "JavaScript", "SEO"],
     featured: false,
     contribution: [
@@ -95,7 +100,9 @@ export const projects: Project[] = [
     title: "VDO Detail – YouTube API + Interactive Transcript",
     category: "fullstack",
     shortDescription: "ui and backend vdo detail",
-    image: ["/vdo-detail.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/vdo-detail.png",
+    ],
     tags: ["Next.js", "JavaScript", "SEO", ".net core"],
     featured: false,
     contribution: [
@@ -112,7 +119,9 @@ export const projects: Project[] = [
     title: "Coin Free",
     category: "fullstack",
     shortDescription: "ui and backend coin free",
-    image: ["/coins-free.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/coins-free.png",
+    ],
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Nest.js"],
     featured: false,
     contribution: [
@@ -132,7 +141,9 @@ export const projects: Project[] = [
     title: "Blog Page",
     category: "frontend",
     shortDescription: "ui design blog page",
-    image: ["/blog-page.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887910/blog-page.png",
+    ],
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
     featured: false,
     contribution: [
@@ -149,7 +160,9 @@ export const projects: Project[] = [
     title: "Authentication Module Testing",
     category: "frontend",
     shortDescription: "Unit & Integration Tests for Login Flow",
-    image: ["/tests.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887909/tests.png",
+    ],
     tags: ["Jest", "React Testing Library", "Integration Test", "Unit Test"],
     featured: false,
     contribution: [
@@ -163,7 +176,7 @@ export const projects: Project[] = [
     title: "Storybook Component Documentation",
     category: "frontend",
     shortDescription: "Documenting and testing UI components using Storybook",
-    image: ["/storybook.png"],
+    image: ["https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887908/storybook_lvbtbs.png"],
     tags: ["Storybook"],
     featured: false,
     contribution: [
@@ -177,7 +190,10 @@ export const projects: Project[] = [
     title: "Api History Order แสดงสถานะการใช้ Coins",
     category: "backend",
     shortDescription: "create api for history coins",
-    image: ["/history-coins.png", "/history-coins-response.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887908/history-coins_dfnakd.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887908/history-coins-response_h6nwk6.png",
+    ],
     tags: ["Nest.js"],
     featured: false,
     contribution: [
@@ -191,7 +207,10 @@ export const projects: Project[] = [
     title: "Campaign API",
     category: "backend",
     shortDescription: "create api for campaign",
-    image: ["/create-campaigns.png", "/update-campaign.png"],
+    image: [
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887911/create-campaigns.png",
+      "https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887909/update-campaign_axl8nx.png",
+    ],
     tags: ["Nest.js"],
     featured: false,
     contribution: [
@@ -206,7 +225,7 @@ export const projects: Project[] = [
     title: "update Api post ES  for Prioritize",
     category: "backend",
     shortDescription: "update Api post ES  for Prioritize",
-    image: ["/es-listing.png"],
+    image: ["https://res.cloudinary.com/dcv3h3yxr/image/upload/v1762887907/es-listing_mjvfxt.png"],
     tags: [".net core", "elastic search"],
     featured: false,
     contribution: [
