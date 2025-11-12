@@ -81,6 +81,9 @@ export default function ProjectsPage() {
               A friendly collection of work showcasing what I’ve created across
               design, development, and digital strategy. Let’s explore together!
             </p>
+            <p className="text-xs text-muted-foreground max-w-2xl pt-1.5">
+              นี่คือผลงานที่ได้รวบรวมไว้เพื่อโชว์สิ่งที่ฉันได้สร้างสรรค์ไว้ในด้านการออกแบบ การพัฒนา และกลยุทธ์ดิจิทัล มาร่วมสำรวจไปด้วยกันนะ!
+            </p>
           </div>
 
           {/* <div className="flex flex-wrap gap-3">

@@ -29,6 +29,9 @@ export function Hero() {
             I build real-world web applications with clean architecture, modern
             UI, and practical engineering skills
           </p>
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto text-pretty">
+            ฉันสร้างเว็บแอปที่ใช้งานได้จริง เน้นโครงสร้างที่เป็นระเบียบ ดีไซน์ทันสมัย และลงมือทำด้วยประสบการณ์การพัฒนาที่ใช้ได้จริงจริงในงาน
+          </p>
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

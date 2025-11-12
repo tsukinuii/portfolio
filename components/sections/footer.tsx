@@ -17,7 +17,11 @@ export function Footer() {
     { icon: Github, href: "https://github.com/sasithon", label: "GitHub" },
     // { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
     { icon: Mail, href: "mailto:sasithon.nuii@gmail.com", label: "Email" },
-    { icon: Linkedin, href: "https://linkedin.com/in/sasithon-nuii", label: "LinkedIn" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
+      label: "LinkedIn",
+    },
   ];
 
   return (
