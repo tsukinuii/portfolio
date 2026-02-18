@@ -14,7 +14,7 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Github, href: "https://github.com/sasithon", label: "GitHub" },
+    { icon: Github, href: "https://github.com/tsukinuii", label: "GitHub" },
     // { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
     { icon: Mail, href: "mailto:sasithon.nuii@gmail.com", label: "Email" },
     {

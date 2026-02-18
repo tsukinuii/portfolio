@@ -1,4 +1,5 @@
 import { projects } from "@/lib/projects";
+import { projectsLearning } from "@/lib/projects-learning";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -17,8 +18,11 @@ export default async function ProjectDetailPage({
 }: ProjectDetailPageProps) {
   const { id } = await params;
   const project = projects.find((p) => p.id === id);
+  const projectLearning = projectsLearning.find((p) => p.id === id);
 
-  if (!project) {
+  const projectDetail = project || projectLearning;
+
+  if (!projectDetail) {
     notFound();
   }
 
@@ -42,7 +46,7 @@ export default async function ProjectDetailPage({
 
   const breadcrumbs = [
     { label: "Projects", href: "/projects" },
-    { label: project.title, href: `/projects/${project.id}` },
+    { label: projectDetail.title, href: `/projects/${projectDetail.id}` },
   ];
 
   return (
@@ -69,21 +73,21 @@ export default async function ProjectDetailPage({
           <div className="space-y-6">
             <div className="space-y-4">
               <div className="flex items-center gap-3 flex-wrap">
-                <Badge className="capitalize">{project.category}</Badge>
+                <Badge className="capitalize">{projectDetail?.category}</Badge>
                 <span className="text-sm text-muted-foreground">
                   Case Study
                 </span>
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground text-pretty">
-                {project.title}
+                {projectDetail.title}
               </h1>
               <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl">
-                {project.shortDescription}
+                {projectDetail.shortDescription}
               </p>
             </div>
 
             <div className="rounded-lg overflow-hidden border border-border h-80 sm:h-96">
-              <Gallery images={project.image} alt={project.title} />
+              <Gallery images={projectDetail.image} alt={projectDetail.title} />
               {/* <img
                 src={project.image[0] || "/placeholder.svg"}
                 alt={project.title}
@@ -103,7 +107,7 @@ export default async function ProjectDetailPage({
                   รายละเอียด
                 </h2>
                 <ul className="space-y-2 text-muted-foreground list-disc ml-6">
-                  {project.contribution.map((item) => (
+                  {projectDetail.contribution.map((item) => (
                     <li key={item}>
                       <span className="text-lg text-muted-foreground leading-relaxed">
                         {item}
@@ -116,15 +120,15 @@ export default async function ProjectDetailPage({
 
             <div className="md:col-span-1">
               <div className="sticky top-8 space-y-6">
-                {project.links && (
+                {projectDetail.links && (
                   <div className="space-y-3 p-6 rounded-lg border border-border bg-card">
                     <h3 className="font-semibold text-foreground mb-4">
                       Project Links
                     </h3>
                     <div className="space-y-3">
-                      {project.links.demo && (
+                      {projectDetail.links?.demo && (
                         <a
-                          href={project.links.demo}
+                          href={projectDetail.links.demo}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -134,9 +138,9 @@ export default async function ProjectDetailPage({
                           </Button>
                         </a>
                       )}
-                      {project.links.github && (
+                      {projectDetail.links?.github && (
                         <a
-                          href={project.links.github}
+                          href={projectDetail.links.github}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -156,7 +160,7 @@ export default async function ProjectDetailPage({
                 <div className="space-y-4 p-6 rounded-lg border border-border bg-card">
                   <h3 className="font-semibold text-foreground">Tags</h3>
                   <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
+                    {projectDetail.tags.map((tag) => (
                       <Badge key={tag} variant="outline" className="text-xs">
                         {tag}
                       </Badge>

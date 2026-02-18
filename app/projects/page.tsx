@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import { projects, type Project } from "@/lib/projects";
 import { ProjectCard } from "@/components/project-card";
+import { projectsLearning } from "@/lib/projects-learning";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Breadcrumb } from "@/components/breadcrumb";
@@ -12,13 +13,20 @@ type Category = "all" | Project["category"];
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState<Category>("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const projectsRef = useRef<HTMLDivElement>(null);
 
-  // const categories: Category[] = ["all", "frontend", "fullstack", "design", "seo"]
+  const allProjects = [
+    ...projects.map((p) => ({ ...p, featuredType: "project" as const })),
+    ...projectsLearning.map((p) => ({
+      ...p,
+      featuredType: "learning" as const,
+    })),
+  ];
 
   const filteredProjects = useMemo(() => {
     return selectedCategory === "all"
-      ? projects
-      : projects.filter((p) => p.category === selectedCategory);
+      ? allProjects
+      : allProjects.filter((p) => p.category === selectedCategory);
   }, [selectedCategory]);
 
   const itemsPerPage = 6;
@@ -26,7 +34,7 @@ export default function ProjectsPage() {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedProjects = filteredProjects.slice(
     startIndex,
-    startIndex + itemsPerPage
+    startIndex + itemsPerPage,
   );
 
   const handleCategoryChange = (category: Category) => {
@@ -58,6 +66,12 @@ export default function ProjectsPage() {
     },
   };
 
+  useEffect(() => {
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [currentPage]);
+
   return (
     <main className="min-h-screen bg-background">
       <script
@@ -82,36 +96,27 @@ export default function ProjectsPage() {
               design, development, and digital strategy. Let’s explore together!
             </p>
             <p className="text-xs text-muted-foreground max-w-2xl pt-1.5">
-              นี่คือผลงานที่ได้รวบรวมไว้เพื่อโชว์สิ่งที่ฉันได้สร้างสรรค์ไว้ในด้านการออกแบบ การพัฒนา และกลยุทธ์ดิจิทัล มาร่วมสำรวจไปด้วยกันนะ!
+              นี่คือผลงานที่ได้รวบรวมไว้เพื่อโชว์สิ่งที่ฉันได้สร้างสรรค์ไว้ในด้านการออกแบบ
+              การพัฒนา และกลยุทธ์ดิจิทัล มาร่วมสำรวจไปด้วยกันนะ!
             </p>
           </div>
-
-          {/* <div className="flex flex-wrap gap-3">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                onClick={() => handleCategoryChange(category)}
-                variant={selectedCategory === category ? "default" : "outline"}
-                className="capitalize"
-              >
-                {category === "all" ? "All Projects" : category}
-              </Button>
-            ))}
-          </div>
-
-          <p className="text-sm text-muted-foreground">
-            Showing {Math.min(itemsPerPage, filteredProjects.length)} of {filteredProjects.length} projects
-          </p> */}
         </div>
       </section>
 
-      <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+      <section
+        ref={projectsRef}
+        className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8"
+      >
         <div className="max-w-6xl mx-auto">
           {paginatedProjects.length > 0 ? (
             <>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {paginatedProjects.map((project) => (
-                  <ProjectCard key={project.id} project={project} />
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
+                    featuredType={project.featuredType}
+                  />
                 ))}
               </div>
 
@@ -136,7 +141,7 @@ export default function ProjectsPage() {
                         >
                           {page}
                         </Button>
-                      )
+                      ),
                     )}
                   </div>
                   <Button

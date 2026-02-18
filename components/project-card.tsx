@@ -1,20 +1,29 @@
-"use client"
+"use client";
 
-import type { Project } from "@/lib/projects"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import type { Project } from "@/lib/projects";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectCardProps {
-  project: Project
+  project: Project;
+  featuredType: "project" | "learning";
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, featuredType }: ProjectCardProps) {
   return (
     <Link href={`/projects/${project.id}`}>
       <Card className="h-full overflow-hidden hover:shadow-lg transition-shadow cursor-pointer group">
         <div className="relative h-48 sm:h-64 bg-muted overflow-hidden">
+          <div className="absolute top-0 left-1">
+            <Badge
+              variant="outline"
+              className="bg-orange-500 text-black font-semibold border-orange-500"
+            >
+              {featuredType}
+            </Badge>
+          </div>
           <img
             src={project.image[0] || "/placeholder.svg"}
             alt={project.title}
@@ -29,7 +38,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-accent transition-colors flex-shrink-0 mt-1" />
           </div>
 
-          <p className="text-muted-foreground text-sm line-clamp-2">{project.shortDescription}</p>
+          <p className="text-muted-foreground text-sm line-clamp-2">
+            {project.shortDescription}
+          </p>
 
           <div className="flex flex-wrap gap-2 pt-2">
             {project.tags.slice(0, 3).map((tag) => (
@@ -37,10 +48,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 {tag}
               </Badge>
             ))}
-            {project.tags.length > 3 && <Badge variant="secondary">+{project.tags.length - 3}</Badge>}
+            {project.tags.length > 3 && (
+              <Badge variant="secondary">+{project.tags.length - 3}</Badge>
+            )}
           </div>
         </CardContent>
       </Card>
     </Link>
-  )
+  );
 }
